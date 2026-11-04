@@ -1,0 +1,78 @@
+{
+  "validation": {
+    "cm4_deming_slope": [
+      0.719882,
+      0.1
+    ],
+    "cm4_boot_lo": [
+      0.634218,
+      0.1
+    ],
+    "cm4_boot_hi": [
+      0.821525,
+      0.1
+    ]
+  },
+  "detect_q4_2025": {
+    "n_events": [
+      290,
+      0.15
+    ],
+    "n_multisite": [
+      210,
+      0.15
+    ],
+    "n_Hite": [
+      30,
+      0.15
+    ],
+    "n_Refinery": [
+      17,
+      0.15
+    ],
+    "n_stagnation": [
+      131,
+      0.15
+    ]
+  },
+  "invert_q4_2025": {
+    "hite_split_transport": [
+      28.923259,
+      0.1
+    ],
+    "hite_split_all": [
+      16.419864,
+      0.1
+    ],
+    "refinery_transport": [
+      12.97128,
+      0.1
+    ],
+    "hite_event_coverage": [
+      0.091413,
+      0.1
+    ]
+  },
+  "invert_2024_2025": {
+    "hite_2025_transport": [
+      28.044484,
+      0.1
+    ],
+    "hite_2025_all": [
+      22.021961,
+      0.1
+    ],
+    "refinery_2025_transport": [
+      10.462613,
+      0.1
+    ],
+    "hite_2024_transport": [
+      5.676175,
+      0.1
+    ],
+    "hite_q4_cm8wind_transport": [
+      30.473386,
+      0.1
+    ]
+  }
+}

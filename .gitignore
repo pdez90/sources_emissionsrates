@@ -1,0 +1,8 @@
+data/interim/
+data/raw/
+.Rhistory
+.RData
+.Rproj.user/
+.DS_Store
+*.xlsx
+*.zip

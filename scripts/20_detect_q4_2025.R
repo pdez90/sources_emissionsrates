@@ -1,0 +1,11 @@
+# Step 20: network plume detection + geometry/chemistry attribution for Q4 2025 (CCND + Birch).
+.repo <- normalizePath(file.path(dirname(sub("--file=", "", grep("--file=", commandArgs(FALSE), value = TRUE)[1])), "..")); source(file.path(.repo, "R", "config.R")); src_files()
+P <- load_panel(gases = TRUE); b5 <- birch_five_min()
+pq <- panel_q4(P, b5); W <- regional_wind(P, pq$t, birch5 = b5)
+D <- detect_events(pq$t, pq$X, W$U, W$V); C <- chemistry(D$EV, D$SR)
+wcsv(C$EV, file.path(RESULTS, "q4_2025_events.csv")); wcsv(C$SR, file.path(RESULTS, "q4_2025_event_sites.csv")); wcsv(C$summ, file.path(RESULTS, "q4_2025_chemistry_by_geometry.csv"))
+cat("noise sigma (ppb):", paste(names(D$sig), round(D$sig, 2), sep = "=", collapse = " "), "\n")
+cat("events", nrow(C$EV), " multi-site", sum(C$EV$nsites >= 2), "\n"); print(table(C$EV$final)); print(C$summ, digits = 3)
+cat(sprintf("chemistry agrees with geometry: %.0f%%\n", 100*C$agree))
+tab <- table(C$EV$final); names(tab) <- paste0("n_", gsub("/", "_", names(tab)))
+do.call(record, c(list("detect_q4_2025", n_events = nrow(C$EV), n_multisite = sum(C$EV$nsites >= 2), chem_agree = C$agree), as.list(as.integer(tab)) |> setNames(names(tab))))
